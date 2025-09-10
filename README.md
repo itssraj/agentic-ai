@@ -39,62 +39,14 @@ agentic-ai/
 
 ## 🚀 Getting Started
 
-### Prerequisites
+To set up your environment, please follow the step-by-step instructions for your operating system:
 
-* Python 3.10 or higher
-* OpenAI API key (sign up at [OpenAI](https://platform.openai.com/))
-* Basic understanding of Python and Jupyter notebooks
+- **Windows:** [setup/SETUP-PC.md](setup/SETUP-PC.md)
+- **Mac/Linux:** [setup/SETUP-mac.md](setup/SETUP-mac.md)
 
-### Installation
+These guides cover prerequisites, repo cloning, environment setup, API key configuration, and troubleshooting tips.
 
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/Shaheerairaj/agentic-ai-course.git
-   cd agentic-ai-course
-   ```
-
-2. **Create and activate a virtual environment**
-
-   *For Windows:*
-
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\Activate
-   ```
-
-   *For Mac/Linux:*
-
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
-
-3. **Install dependencies:**
-
-   Using pip:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   Or using uv (recommended):
-
-   ```bash
-   uv sync
-   ```
-
-4. **Set up your API key:**
-
-   ```bash
-   echo "OPENAI_API_KEY=your_api_key_here" > .env
-   ```
-
-5. **Start learning:**
-
-   ```bash
-   jupyter notebook Part1-Fundamentals/
-   ```
+Once your environment is ready, you can start learning by launching the notebooks in the `Part1-Fundamentals/` folder.
 
 ---
 
