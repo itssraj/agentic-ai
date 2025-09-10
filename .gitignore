@@ -38,9 +38,6 @@ build/
 .coverage.*
 htmlcov/
 *.prof
-*.pdf
-*.png
-*.jpg
 *.jpeg
 *.gif
 *.svg
