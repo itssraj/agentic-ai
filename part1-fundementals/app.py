@@ -19,7 +19,8 @@ if not OPENAI_API_KEY:
 tavily_client = TavilyClient()
 openai_client = OpenAI()
 
-# All functions:
+
+# All functions
 
 def flight_search(query: str) -> str:
     """
@@ -35,7 +36,7 @@ def flight_search(query: str) -> str:
 
     response = tavily_client.search(
     query=query,
-    include_domains=["booking.com","qatarairways.com","skyscanner.com"]
+    include_domains=["emirates.com","etihad.ae","skyscanner.com"]
     )
 
     results = response.get("results", [])
@@ -62,7 +63,7 @@ def hotel_search(query: str) -> str:
 
     response = tavily_client.search(
     query=query,
-    include_domains=["expedia.com","marriott.com"]
+    include_domains=["booking.com","airbnb.com"]
     )
 
     results = response.get("results", [])
@@ -74,6 +75,7 @@ def hotel_search(query: str) -> str:
     formatted_contents = "\n".join(f"{i + 1}. {content}" for i, content in enumerate(contents) if content)
 
     return formatted_contents
+
 
 def call_function(name, args):
     if name == "flight_search":
@@ -96,7 +98,6 @@ def get_response(input_list):
 
 
 
-
 # Class to define prompt template
 class PromptTemplate:
     def __init__(self, template: str, input_variables: list[str]):
@@ -105,8 +106,7 @@ class PromptTemplate:
 
     def generate(self, **kwargs) -> str:
         return self.template.format(**{k: kwargs[k] for k in self.input_variables})
-    
-# Define the prompt template
+
 
 prompt = PromptTemplate(
     template="I want to travel to {destination} from {origin} on {departure_date} and return on {return_date}. I prefer {preferences}",
@@ -115,13 +115,13 @@ prompt = PromptTemplate(
 
 
 
-# Define Schema for tools
 
+# Schemas
 flight_tool_schema = function_to_tool(flight_search)
 hotel_tool_schema = function_to_tool(hotel_search)
 
 
-# App Logic
+# App logic
 
 system_message = """
 You are an AI travel planner. The user will provide all their vacation details in a single prompt. Your job is to:
@@ -139,8 +139,8 @@ Example flow:
 
 ---
 **Your Adventure Awaits!**
-- Destination: Chennai, India
-- Dates: 2025-10-30 to 2025-11-10
+- Destination: Tokyo, Japan
+- Dates: 2024-10-01 to 2024-10-10
 
 ✈️ **Flight Options:**
 1. [Flight details here]
@@ -203,15 +203,16 @@ def trip_planner(destination, origin, departure_date, return_date, preferences):
 
     return response.output_text
 
-# Gradio UI
+
+# Gradio Interface
 
 with gr.Blocks() as demo:
-    gr.Markdown("# QikTravlPlan: Your Personal Travel Itinerary Planner")
+    gr.Markdown("# Atlas: Your Personal Travel Itinerary Planner")
     gr.Markdown("Plan your perfect trip with ease! Enter your travel details below, and let our AI-powered planner find the best flights and hotels for you.")
     
     with gr.Row():
-        destination = gr.Textbox(label="Destination", placeholder="Enter your travel destination (e.g., Chennai)")
-        origin = gr.Textbox(label="Origin", placeholder="Enter your departure city (e.g., Detroit)")
+        destination = gr.Textbox(label="Destination", placeholder="Enter your travel destination (e.g., Tokyo)")
+        origin = gr.Textbox(label="Origin", placeholder="Enter your departure city (e.g., New York)")
 
     with gr.Row():
         departure_date = gr.Textbox(label="Departure Date", placeholder="Enter your departure date (e.g., 2024-10-01)")
