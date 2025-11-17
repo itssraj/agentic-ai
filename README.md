@@ -1,9 +1,7 @@
 # Agentic AI – Fundamentals
 
 **Welcome to the Agentic AI learning resource!**
-Built in collaboration with [SuperDataScience](https://community.superdatascience.com), this course is part of our community-driven effort to make Agentic AI accessible to everyone.
-
-This repository is your hands-on guide to building **AI agents from scratch using pure Python** before we move on to frameworks like LangChain or CrewAI. By the end of these courses, you’ll understand how agents work under the hood and be able to build autonomous Agentic AI systems and deploy them to production for scalability.
+This repository is an  hands-on guide to building **AI agents from scratch using pure Python** before we move on to frameworks like LangChain or CrewAI. Will understand how agents work under the hood and be able to build autonomous Agentic AI systems and deploy them to production for scalability.
 
 ---
 
@@ -30,9 +28,7 @@ agentic-ai/
 ├── environment.yaml
 ├── .env.example
 └── Part1-Fundamentals/
-    └── community-contributions/
-    └── lab1
-    └── lab2
+    
 ```
 
 ---
@@ -53,6 +49,7 @@ Once your environment is ready, you can start learning by launching the notebook
 ## 🛠️ Key Dependencies
 
 * **OpenAI** – for accessing LLMs
+* **Mistral** - for sentence transformer LLMs
 * **python-dotenv** – for managing API keys in `.env`
 * **Jupyter** – for interactive learning
 
